@@ -1,0 +1,22 @@
+.search {
+  background-color: black;
+  border: 1px solid grey;
+  outline: none;
+  width: 300px;
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-bottom: 1px solid white;
+  color: white;
+  height: 20px;
+}
+
+.search::placeholder {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.search:focus {
+  border: 1px solid white;
+}

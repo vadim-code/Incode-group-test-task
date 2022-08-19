@@ -1,0 +1,39 @@
+.header-cell {
+  width: 100px;
+  padding: 5px 5px;
+  display: flex;
+}
+
+span {
+  color: white;
+  font-weight: bold;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+
+.btn-price {
+  margin-left: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+  color: white;
+  width: 10px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.from-low {
+  background-color: red;
+}
+
+.from-high {
+  background-color: green;
+}

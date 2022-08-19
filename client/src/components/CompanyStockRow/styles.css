@@ -1,0 +1,46 @@
+.row-container {
+  display: flex;
+  align-items: center;
+}
+
+.ticker {
+  color: red;
+}
+
+.company-name-cell {
+  width: 100px;
+  text-align: left;
+}
+
+.growing {
+  color: green;
+}
+
+.falling {
+  color: red;
+}
+
+.price {
+  color: white;
+}
+
+.cell {
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+}
+
+.cell > span {
+  font-size: 20px;
+}
+
+.arrow {
+  height: 17px;
+}
+
+.delete_button {
+  height: 17px;
+  color: red;
+}
