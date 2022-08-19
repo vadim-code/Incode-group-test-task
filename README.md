@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# React Test Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements
 
-## Available Scripts
+We need you to implement a solution to display price tickers data on the UI in realtime.
 
-In the project directory, you can run:
+Price data is available from a locally running service (see information below). Any additional visualisations to indicate how prices have changed would be a plus. Testing is also an important part to this exercise.
 
-### `npm start`
+Requirements:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- application should connect to the locally running service
+- application should render price changes for some tickers in real time
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can get some ideas how your application may look like on the [Google Finance](https://www.google.com/finance/) page.
 
-### `npm test`
+As a bonus you can implement (please describe implemented bonus functionality in this file):
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- any additional visual effects to highlight positive or negative changes in the prices
+- the possibility to switch on/off tickers by user
+- the possibility to specify interval time by user
+- the possibility to add/remove ticker from watching group
+- any additional functionality you consider useful
 
-### `npm run build`
+1. Added 'start' `, 'stop' buttons
+2. Added search input
+3. Added ability to delete stocks, and return back
+4. Added sort for all stocks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You should use the next technologies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React (preferable with hooks)
+- Redux (with Redux-Thunk or any other Redux middleware you are familiar) or any other state-manager library you want
+- Socket.io - to connect to the service
+- any UI library you want, or you can use just pure CSS
+- Testing Library
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We will assess the next parts:
 
-### `npm run eject`
+- workability: how your application works
+- projects structure: how you structure your files
+- code quality: how you write clean, readable code (feel free to install and use ESLint and Prettier)
+- knowledge React and its ecosystem: how you compose and use libraries together
+- testing: how you can test your code
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Running the local service
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Open a new bash shell
+2. `cd server`
+3. `npm install` or `yarn install`
+4. `npm run start` or `yarn start`
+5. You can visit [http://localhost:4000](http://localhost:4000) to check that the service is working correctly and inspect the data it produces.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Run your application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Open a new bash shell
+2. `cd client`
+3. `npm install` or `yarn install`
+4. `npm run start` or `yarn start`
 
-## Learn More
+## Run the tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Open a new bash shell
+2. `cd client`
+3. `npm run test` or `yarn test`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Price Service Usage
 
-### Code Splitting
+URL:
+`http://localhost:4000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Price tickers are real-time via web-sockets.
 
-### Analyzing the Bundle Size
+## Example JSON Response from the Price Ticker service
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```json
+[
+  {
+    "ticker": "AAPL",
+    "exchange": "NASDAQ",
+    "price": 279.29,
+    "change": 64.52,
+    "change_percent": 0.84,
+    "dividend": 0.56,
+    "yield": 1.34,
+    "last_trade_time": "2021-04-30T11:53:21.000Z"
+  },
+  {
+    "ticker": "GOOGL",
+    "exchange": "NASDAQ",
+    "price": 237.08,
+    "change": 154.38,
+    "change_percent": 0.1,
+    "dividend": 0.46,
+    "yield": 1.18,
+    "last_trade_time": "2021-04-30T11:53:21.000Z"
+  },
+  {
+    "ticker": "MSFT",
+    "exchange": "NASDAQ",
+    "price": 261.46,
+    "change": 161.45,
+    "change_percent": 0.41,
+    "dividend": 0.18,
+    "yield": 0.98,
+    "last_trade_time": "2021-04-30T11:53:21.000Z"
+  },
+  {
+    "ticker": "AMZN",
+    "exchange": "NASDAQ",
+    "price": 260.34,
+    "change": 128.71,
+    "change_percent": 0.6,
+    "dividend": 0.07,
+    "yield": 0.42,
+    "last_trade_time": "2021-04-30T11:53:21.000Z"
+  },
+  {
+    "ticker": "FB",
+    "exchange": "NASDAQ",
+    "price": 266.77,
+    "change": 171.92,
+    "change_percent": 0.75,
+    "dividend": 0.52,
+    "yield": 1.31,
+    "last_trade_time": "2021-04-30T11:53:21.000Z"
+  },
+  {
+    "ticker": "TSLA",
+    "exchange": "NASDAQ",
+    "price": 272.13,
+    "change": 158.76,
+    "change_percent": 0.1,
+    "dividend": 0.96,
+    "yield": 1.0,
+    "last_trade_time": "2021-04-30T11:53:21.000Z"
+  }
+]
+```
 
-### Making a Progressive Web App
+The tickers we use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **AAPL** - Apple
+- **GOOGL** - Alphabet
+- **MSFT** - Microsoft
+- **AMZN** - Amazon
+- **FB** - Facebook
+- **TSLA** - Tesla
 
-### Advanced Configuration
+## How to complete the task
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone or fork this repository
+2. Modify content of the folder `client`
+3. Modify content of the folder `server` - if you want to complete bonus tasks
+4. Commit and push your code to your repository
+5. Send us link to your repository
